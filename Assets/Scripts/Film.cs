@@ -46,8 +46,30 @@ public class Film : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    private void Start()
+    {
+        RandomCastAndLocations();
+        //UIManager.onSave += SetCastAndLocation;
+    }
+
     public void CreateNewFilm()
     {
         Debug.Log("New Film Created!");
     }
+
+    // Randomise the number of characters and locations for the film
+    // this should be dependent on genre and other perks
+    public void RandomCastAndLocations()
+    {
+        numberOfCast = Random.Range(1, 4);
+        numberOfLocations = Random.Range(1, 4);
+    }
+
+    /*
+    // this will be useful when perks and other things can affect the numbers
+    public void SetCastAndLocation()
+    {
+
+    }
+    */
 }

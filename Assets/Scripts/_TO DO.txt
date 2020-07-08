@@ -8,8 +8,10 @@
     - this allows them to be persistent across levels
 * [DONE] Do Not Destroy for Managers
 * [DONE] "Next Scene" button for debugging
-* Cast and Crew numbers (randomise for now)
+* [DONE] Cast and Crew numbers (randomise for now)
 * Create OKButton Delegate/event system
+* Screenplay perks
+* Clear input fields when OK/Cancel clicked
 
 [Pre-Production]
 * Create buttons for Cast, Crew, Location Scout

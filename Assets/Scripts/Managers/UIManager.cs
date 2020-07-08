@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject moneyValueUI, weeksValueUI, monthsValueUI, yearsValueUI;
 
-    [Tooltip("[0] plotValue\n[1] characterValue\n[2] actionValue\n[3] violenceValue\n[4] effectsValue\n[5] romanceValue\n[6] jokesValue\n[7] terrorValue\n[8] satireValue\n[9] raunchValue\n[10] storyPoints")]
+    [Tooltip("[0] plotValue\n[1] characterValue\n[2] actionValue\n[3] violenceValue\n[4] effectsValue\n[5] romanceValue\n[6] jokesValue\n[7] terrorValue\n[8] satireValue\n[9] raunchValue\n[10] storyPoints\n[11] characters\n[12] locations")]
     public List<TextMeshProUGUI> screenplayParams;
 
     [Tooltip("[0] Screenplay cost value")]
@@ -106,6 +106,10 @@ public class UIManager : MonoBehaviour
         screenplayParams[8].text = newScreenplay.screenplayParams["satire"].ToString();
         screenplayParams[9].text = newScreenplay.screenplayParams["raunch"].ToString();
         screenplayParams[10].text = newScreenplay.storyPoints.ToString();
+
+        var newFilm = FilmManager.Instance.newFilm;
+        screenplayParams[11].text = newFilm.GetComponent<Film>().numberOfCast.ToString();
+        screenplayParams[12].text = newFilm.GetComponent<Film>().numberOfLocations.ToString();
 
         // Display the cost of creating the screenplay
         var expenses = GameManager.Instance.TimeToMoneyConverter().ToString("$#,#");
