@@ -4,11 +4,15 @@
 * [DONE] Add an Event System to UI Manager & Save button to return perks to starting position
     once clicked
 * [DONE] Do the same for "Cancel" button
-* Create OKButton Delegate/event system
-* Using tags, let UIManager find Resource Value UI elements to link with variables
-    this allows them to be persistent across levels
-* Do Not Destroy for Managers
+* [DONE] Using tags, let UIManager find Resource Value UI elements to link with variables
+    - this allows them to be persistent across levels
+* [DONE] Do Not Destroy for Managers
 * [DONE] "Next Scene" button for debugging
+* Cast and Crew numbers (randomise for now)
+* Create OKButton Delegate/event system
 
 [Pre-Production]
-* [DONE] Connect resource values to Resource UIs (using FindWithTag() and GetComponent())
+* Create buttons for Cast, Crew, Location Scout
+
+[Persistence]
+* Make films and film database persistent across scenes

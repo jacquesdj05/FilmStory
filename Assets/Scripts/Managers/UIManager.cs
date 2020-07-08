@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     public string newFilmTitle { get; protected set; }
     public string newGenre { get; protected set; }
 
+    [SerializeField]
     private GameObject moneyValueUI, weeksValueUI, monthsValueUI, yearsValueUI;
 
     [Tooltip("[0] plotValue\n[1] characterValue\n[2] actionValue\n[3] violenceValue\n[4] effectsValue\n[5] romanceValue\n[6] jokesValue\n[7] terrorValue\n[8] satireValue\n[9] raunchValue\n[10] storyPoints")]
@@ -39,7 +40,14 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        _instance = this;
+        // Dont destroy this object when a new scene is loaded, unless...
+        DontDestroyOnLoad(this);
+
+        // There can be only ONE!
+        if (_instance == null)
+            _instance = this;
+        else if (_instance != this)
+            Destroy(this.gameObject);
     }
 
     public void ShowUIWindow(GameObject uiWindow)

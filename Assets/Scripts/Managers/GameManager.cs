@@ -19,7 +19,14 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        _instance = this;
+        // Dont destroy this object when a new scene is loaded, unless...
+        DontDestroyOnLoad(this);
+
+        // There can be only ONE!
+        if (_instance == null)
+            _instance = this;
+        else if (_instance != this)
+            Destroy(this.gameObject);
     }
 
     // Resoures to be spent throughout the game
