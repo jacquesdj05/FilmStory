@@ -1,11 +1,14 @@
 ﻿TO DO:
 
+[Development]
 * [DONE] Add an Event System to UI Manager & Save button to return perks to starting position
     once clicked
 * [DONE] Do the same for "Cancel" button
-* Delegate/Event system for Save/Cancel buttons
 * Create OKButton Delegate/event system
 * Using tags, let UIManager find Resource Value UI elements to link with variables
     this allows them to be persistent across levels
 * Do Not Destroy for Managers
 * [DONE] "Next Scene" button for debugging
+
+[Pre-Production]
+* [DONE] Connect resource values to Resource UIs (using FindWithTag() and GetComponent())

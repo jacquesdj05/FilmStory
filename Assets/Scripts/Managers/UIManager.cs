@@ -18,11 +18,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        _instance = this;
-    }
-
     // Save Button event system
     public delegate void SaveAction();
     public static event SaveAction onSave;
@@ -31,17 +26,21 @@ public class UIManager : MonoBehaviour
     public delegate void CancelAction();
     public static event CancelAction onCancel;
 
-    [Tooltip("[0] Money value\n[1] Weeks value\n[2] Month value\n[3] Year value")]
-    public List<TextMeshProUGUI> resourceValues;
-
     public string newFilmTitle { get; protected set; }
     public string newGenre { get; protected set; }
+
+    private GameObject moneyValueUI, weeksValueUI, monthsValueUI, yearsValueUI;
 
     [Tooltip("[0] plotValue\n[1] characterValue\n[2] actionValue\n[3] violenceValue\n[4] effectsValue\n[5] romanceValue\n[6] jokesValue\n[7] terrorValue\n[8] satireValue\n[9] raunchValue\n[10] storyPoints")]
     public List<TextMeshProUGUI> screenplayParams;
 
     [Tooltip("[0] Screenplay cost value")]
     public List<TextMeshProUGUI> costs;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     public void ShowUIWindow(GameObject uiWindow)
     {
@@ -61,10 +60,28 @@ public class UIManager : MonoBehaviour
     public void DisplayResourceValues()
     {
         // Display the cash on hand in the UI and format with a comma
-        resourceValues[0].text = GameManager.Instance.money.ToString("$#,#");
-        resourceValues[1].text = GameManager.Instance.weeks.ToString();
-        resourceValues[2].text = GameManager.Instance.months.ToString();
-        resourceValues[3].text = GameManager.Instance.years.ToString();
+
+        // if Value field is null in the inspector, then fill it with the GameObject (also initialises)
+        // TO DO: error checking. Is there a better way than checking every frame?
+        if (moneyValueUI != null)
+            moneyValueUI.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.money.ToString("$#,#");
+        else
+            moneyValueUI = GameObject.FindGameObjectWithTag("MoneyValueUI");
+
+        if (weeksValueUI != null)
+            weeksValueUI.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.weeks.ToString();
+        else
+            weeksValueUI = GameObject.FindGameObjectWithTag("WeekValueUI");
+
+        if (monthsValueUI != null)
+            monthsValueUI.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.months.ToString();
+        else
+            monthsValueUI = GameObject.FindGameObjectWithTag("MonthValueUI");
+
+        if (yearsValueUI != null)
+            yearsValueUI.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.years.ToString();
+        else
+            yearsValueUI = GameObject.FindGameObjectWithTag("YearValueUI");
     }
 
     public void DisplayParamValue(Screenplay newScreenplay)

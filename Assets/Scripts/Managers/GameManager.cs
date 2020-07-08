@@ -70,12 +70,12 @@ public class GameManager : MonoBehaviour
             months++;
             weeks -= 4;
             money -= monthlyExpenses;
+        }
 
-            if (months != 0 && months % 12 == 0)
-            {
-                years++;
-                months = 0;
-            }
+        if (months != 0 && months - 12 >= 0)
+        {
+            years++;
+            months -= 12;
         }
     }
 
