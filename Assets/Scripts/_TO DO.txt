@@ -15,4 +15,4 @@
 * Create buttons for Cast, Crew, Location Scout
 
 [Persistence]
-* Make films and film database persistent across scenes
+* [DONE] Make films and film database persistent across scenes

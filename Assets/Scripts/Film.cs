@@ -41,6 +41,11 @@ public class Film : MonoBehaviour
     // not generated in the inspector
     //public static int filmCount = 0;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+
     public void CreateNewFilm()
     {
         Debug.Log("New Film Created!");
