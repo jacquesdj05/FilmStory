@@ -185,4 +185,13 @@ public class UIManager : MonoBehaviour
         newGenre = dropdown.GetComponent<TMP_Dropdown>().captionText.text;
         Debug.Log("Genre selected: " + newGenre);
     }
+
+    /// <summary>
+    /// Used for debugging
+    /// </summary>
+    public void NextSceneButton()
+    {
+        Debug.Log("Loading next scene");
+        GameManager.Instance.GoToPreProduction();
+    }
 }
