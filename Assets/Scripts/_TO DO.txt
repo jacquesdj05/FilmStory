@@ -1,6 +1,9 @@
 ﻿TO DO:
 
 [Development]
+* Create OKButton Delegate/event system
+* Screenplay perks
+* Clear input fields when OK/Cancel clicked
 * [DONE] Add an Event System to UI Manager & Save button to return perks to starting position
     once clicked
 * [DONE] Do the same for "Cancel" button
@@ -9,12 +12,16 @@
 * [DONE] Do Not Destroy for Managers
 * [DONE] "Next Scene" button for debugging
 * [DONE] Cast and Crew numbers (randomise for now)
-* Create OKButton Delegate/event system
-* Screenplay perks
-* Clear input fields when OK/Cancel clicked
 
 [Pre-Production]
 * Create buttons for Cast, Crew, Location Scout
+* Locations: Location Class (custom made - public values in inspector)
+* Locations: Location Database
+* Cast: Cast Class (randomly generated stats)
+* Cast: Cast Database
+* Crew: Crew Class (randomly generated stats)
+* Crew: Crew Database
 
 [Persistence]
+* "HEAT" resource that increases when a good film is made and compounds with successive hits, but decays over time
 * [DONE] Make films and film database persistent across scenes
