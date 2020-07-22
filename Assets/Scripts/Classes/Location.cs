@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Location : MonoBehaviour
+[System.Serializable]
+public class Location
 {
+    public string locationName, locationID;
+
     // Has the player (or their location scout) unlocked this location
     // if True, then show in the menu
     public bool unlocked;
-
-    public string locationName;
 
     public bool interior = false;
 
@@ -25,5 +26,6 @@ public class Location : MonoBehaviour
     [Range(1,10)]
     public int xFactor;
 
+    [TextAreaAttribute(3,3)]
     public string description;
 }
