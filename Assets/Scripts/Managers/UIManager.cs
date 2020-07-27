@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     public string newGenre { get; protected set; }
 
     [SerializeField]
-    private GameObject moneyValueUI, weeksValueUI, monthsValueUI, yearsValueUI;
+    private GameObject moneyValueUI, timeValueUI;
 
     [Tooltip("[0] plotValue\n[1] characterValue\n[2] actionValue\n[3] violenceValue\n[4] effectsValue\n[5] romanceValue\n[6] jokesValue\n[7] terrorValue\n[8] satireValue\n[9] raunchValue\n[10] storyPoints\n[11] characters\n[12] locations")]
     public List<TextMeshProUGUI> screenplayParams;
@@ -72,24 +72,17 @@ public class UIManager : MonoBehaviour
         // if Value field is null in the inspector, then fill it with the GameObject (also initialises)
         // TO DO: error checking. Is there a better way than checking every frame?
         if (moneyValueUI != null)
-            moneyValueUI.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.money.ToString("$#,#");
+            moneyValueUI.GetComponent<TextMeshProUGUI>().text = "Money: " + GameManager.Instance.money.ToString("$#,#");
         else
             moneyValueUI = GameObject.FindGameObjectWithTag("MoneyValueUI");
 
-        if (weeksValueUI != null)
-            weeksValueUI.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.weeks.ToString();
+        if (timeValueUI != null)
+            timeValueUI.GetComponent<TextMeshProUGUI>().text =
+                "W: " + GameManager.Instance.weeks.ToString()
+                + " M: " + GameManager.Instance.months.ToString()
+                + " Y: " + GameManager.Instance.years.ToString();
         else
-            weeksValueUI = GameObject.FindGameObjectWithTag("WeekValueUI");
-
-        if (monthsValueUI != null)
-            monthsValueUI.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.months.ToString();
-        else
-            monthsValueUI = GameObject.FindGameObjectWithTag("MonthValueUI");
-
-        if (yearsValueUI != null)
-            yearsValueUI.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.years.ToString();
-        else
-            yearsValueUI = GameObject.FindGameObjectWithTag("YearValueUI");
+            timeValueUI = GameObject.FindGameObjectWithTag("TimeValueUI");
     }
 
     public void DisplayParamValue(Screenplay newScreenplay)
@@ -177,7 +170,7 @@ public class UIManager : MonoBehaviour
     public void GetFilmInfo()       // Implemented with the "OK button" UI button
     {
         GetNewFilmTitle();
-        GetNewFilmGenre();
+        //GetNewFilmGenre();
 
         FilmManager.Instance.CreateNewFilm();
         //FilmManager.Instance.SetScreenplayParams();
@@ -203,15 +196,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void GetNewFilmGenre()
+    public void GetNewFilmGenre(string selectedGenre)
     {
-        var dropdown = GameObject.Find("Genre_Dropdown");
-        if (dropdown == null)
-        {
-            Debug.LogError("GetNewFilmGenre() error: Genre Dropdown not found!");
-        }
-
-        newGenre = dropdown.GetComponent<TMP_Dropdown>().captionText.text;
+        newGenre = selectedGenre;
         Debug.Log("Genre selected: " + newGenre);
     }
 

@@ -1,6 +1,12 @@
 ﻿TO DO:
+[General]
+* [DONE] Make Canvasses scale with screen size
+* Refactor all UIs with Anchor positions
+* Refactor Resources with only single Text field for each resource (remove "value")
+* Break-up UIManager.cs into smaller classes
 
 [Development]
+* [DONE] Genre Dropdown - Panel with Button Grid
 * Create OKButton Delegate/event system
 * Screenplay perks
 * Clear input fields when OK/Cancel clicked
