@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class UI_ShowHide : Hideable
 {
-    public bool isCreateFilmButton = false;
+    public bool startVisible = false;
 
     private void Awake()
     {
-        if (!isCreateFilmButton)
+        if (!startVisible)
             Hide();
     }
 }

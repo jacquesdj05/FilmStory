@@ -35,6 +35,7 @@ public class FilmManager : MonoBehaviour
     public GameObject newFilm = null;
     
     // Database of saved films
+    // See if this is possible without needing GameObjects (i.e. using "film" class only)
     public List<GameObject> FilmDB = new List<GameObject>();
 
     private void Start()
@@ -50,6 +51,7 @@ public class FilmManager : MonoBehaviour
         
         var newFilmTitle = CreateNewFilmTitle(newFilm);
         var newFilmGenre = CreateNewFilmGenre(newFilm);
+        var newFilmTopic = CreateNewFilmTopic(newFilm);
 
         newFilm.GetComponent<Transform>().name = newFilmTitle;
 
@@ -68,6 +70,13 @@ public class FilmManager : MonoBehaviour
         var genre = newFilm.GetComponent<Film>().genre = UIManager.Instance.newGenre;
 
         return genre;
+    }
+
+    public string CreateNewFilmTopic(GameObject newFilm)
+    {
+        var topic = newFilm.GetComponent<Film>().topic = UIManager.Instance.newTopic;
+
+        return topic;
     }
 
     public void SetScreenplayParams(Screenplay newScreenplay)

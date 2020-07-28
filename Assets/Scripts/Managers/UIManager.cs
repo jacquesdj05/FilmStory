@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
 
     public string newFilmTitle { get; protected set; }
     public string newGenre { get; protected set; }
+    public string newTopic { get; protected set; }
 
     [SerializeField]
     private GameObject moneyValueUI, timeValueUI;
@@ -200,6 +201,12 @@ public class UIManager : MonoBehaviour
     {
         newGenre = selectedGenre;
         Debug.Log("Genre selected: " + newGenre);
+    }
+
+    public void GetNewFilmTopic(string selectedTopic)
+    {
+        newTopic = selectedTopic;
+        Debug.Log("Topic selected: " + newTopic);
     }
 
     /// <summary>
