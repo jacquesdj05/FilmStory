@@ -18,7 +18,7 @@ public class TopicsManager : MonoBehaviour
 
     /* // Good for testing - Topics are now instead implemented with the Topic class
     public string[] topicArray = {"Alien","Biopic","Body Swap","Buddy","Car","Crime","Cyber","Dance",
-        "Demonic Possession","Detective","Disfunctional Family","Distaster","Dystopia","Elderly","Food",
+        "Demonic Possession","Detective","Disfunctional Family","Distaster","Dystopian","Old Age","Culinary",
         "Forbidden Love","Ghost","Haunted House","Heist","High School","Historic War","Holiday","Journalistic",
         "Legal","Mad Scientist","Magical","Marriage","Martial Arts","Medical","Metamorphosis","Mid-Life Crisis",
         "Military","Modern War","Monster","Movie Business","Music","Musical","Nature","Noir","Occult","Period",

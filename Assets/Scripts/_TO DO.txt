@@ -9,7 +9,7 @@
 [Development]
 * [DONE] Create scroll view for Topics
 * Implement Topics random generation on scroll view
-* Implement Topics manager (List)
+* Implement Topics manager (List all topics)
 * Create OKButton Delegate/event system
 * Screenplay perks
 * Clear input fields when OK/Cancel clicked
