@@ -31,6 +31,9 @@ public class UI_PopulateTopicsPanel : MonoBehaviour
             // make button's label the Topic
             newButton.GetComponentInChildren<TextMeshProUGUI>().text = TopicsManager.Instance.topicList[i].topicName;
 
+            // Set the topicID on the button the TopicsManager topicID [look into Get Set here]
+            newButton.GetComponent<GetTopicName>().topicID = TopicsManager.Instance.topicList[i].topicID;
+
             // Button onClick() function
             // 1. Hide the Topics panel
             // 2. Set the topic of the film - this is done on the button itself (GetTopicName class)

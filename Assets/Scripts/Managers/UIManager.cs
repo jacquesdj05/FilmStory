@@ -197,15 +197,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void GetNewFilmGenre(string selectedGenre)
+    public void GetNewFilmGenre(int selectedGenre)
     {
-        newGenre = selectedGenre;
+
+        newGenre = GenreManager.Instance.genreList[selectedGenre].genreName;
         Debug.Log("Genre selected: " + newGenre);
     }
 
-    public void GetNewFilmTopic(string selectedTopic)
+    public void GetNewFilmTopic(int selectedTopic)
     {
-        newTopic = selectedTopic;
+        newTopic = TopicsManager.Instance.topicList[selectedTopic].topicName;
         Debug.Log("Topic selected: " + newTopic);
     }
 

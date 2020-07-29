@@ -4,15 +4,15 @@
 * Break-up UIManager.cs into smaller classes
 * [DONE] Refactor Resources with only single Text field for each resource (remove "value")
 * [DONE] Make Canvasses scale with screen size
-* [Topics DONE] Genres and Topics need to be classes (with "match strength" fields, preferred locations, images, etc)
+* [DONE] Genres and Topics need to be classes (with "match strength" fields, preferred locations, images, etc)
 
 [Development]
-* [DONE] Create scroll view for Topics
 * Implement Topics random generation on scroll view
-* Implement Topics manager (List all topics)
 * Create OKButton Delegate/event system
 * Screenplay perks
 * Clear input fields when OK/Cancel clicked
+* [DONE] Create scroll view for Topics
+* [DONE] Implement Topics manager (List all topics)
 * [DONE] Genre Dropdown - Panel with Button Grid
 * [DONE] Add an Event System to UI Manager & Save button to return perks to starting position
     once clicked
