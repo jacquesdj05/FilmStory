@@ -2,15 +2,18 @@
 [General]
 * Refactor all UIs with Anchor positions
 * Break-up UIManager.cs into smaller classes
+* Perk Manager that instantiates per prefabs and assigns the values to it according to the perks in its Database
+    (uses bools to track if screenplay perk, production perk, etc)
 * [DONE] Refactor Resources with only single Text field for each resource (remove "value")
 * [DONE] Make Canvasses scale with screen size
 * [DONE] Genres and Topics need to be classes (with "match strength" fields, preferred locations, images, etc)
 
 [Development]
+* Implement optimal genre for topics
 * Implement Topics random generation on scroll view
 * Create OKButton Delegate/event system
 * Screenplay perks
-* Clear input fields when OK/Cancel clicked
+* Clear input fields when OK/Cancel clicked (implement default input value, i.e. "Film #1")
 * [DONE] Create scroll view for Topics
 * [DONE] Implement Topics manager (List all topics)
 * [DONE] Genre Dropdown - Panel with Button Grid
@@ -26,6 +29,7 @@
 [Pre-Production]
 * Create buttons for Cast, Crew, Location Scout
 * Locations: Location Class (custom made - public values in inspector)
+* Locations: Optimal genre & topic
 * Locations: Location Database
 * Cast: Cast Class (randomly generated stats)
 * Cast: Cast Database
