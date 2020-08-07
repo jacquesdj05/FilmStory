@@ -26,6 +26,10 @@ public class UIManager : MonoBehaviour
     public delegate void CancelAction();
     public static event CancelAction onCancel;
 
+    // OK Button event system
+    public delegate void NewFilmOKAction();
+    public static event NewFilmOKAction onNewFilmOK;
+
     public string newFilmTitle { get; protected set; }
     public string newGenre { get; protected set; }
     public string newTopic { get; protected set; }
@@ -49,6 +53,11 @@ public class UIManager : MonoBehaviour
             _instance = this;
         else if (_instance != this)
             Destroy(this.gameObject);
+    }
+
+    private void Start()
+    {
+        onNewFilmOK += GetNewFilmTitle;
     }
 
     public void ShowUIWindow(GameObject uiWindow)
@@ -137,6 +146,13 @@ public class UIManager : MonoBehaviour
         // Subscribers: FilmManager, DragDrop
     }
 
+    public void NewFilmOKButtonClick()
+    {
+        if (onNewFilmOK != null)
+            onNewFilmOK();
+        // Subscribers: UIManager
+    }
+
     /*
     public void CancelButton()
     {
@@ -168,21 +184,26 @@ public class UIManager : MonoBehaviour
     }
     */
 
-    public void GetFilmInfo()       // Implemented with the "OK button" UI button
+    /*
+    public void GetFilmInfo()       // Implemented with the newFilmOK event
     {
         GetNewFilmTitle();
-        //GetNewFilmGenre();
 
-        FilmManager.Instance.CreateNewFilm();
-        //FilmManager.Instance.SetScreenplayParams();
+        FilmManager.Instance.CreateNewFilm(); // implemented with newFilmOK event in FilmManager
+        
     }
+    */
 
     public void GetNewFilmTitle()
     {
-        var inputField = GameObject.Find("FilmTitle_InputField");
+        var inputField = GameObject.Find("Canvas/Film Title_UI Panel/FilmTitle_InputField");
         if (inputField == null)
         {
             Debug.LogError("GetNewFilmTitle() error: Input Field not found!");
+        }
+        else
+        {
+            Debug.Log("Film Title Input Field found!");
         }
 
         // Implement message that film title cannot be empty!
@@ -190,6 +211,8 @@ public class UIManager : MonoBehaviour
         {
             newFilmTitle = inputField.GetComponent<TMP_InputField>().text;
             Debug.Log("New title is: " + newFilmTitle);
+
+            FilmManager.Instance.CreateNewFilm();
         }
         else
         {

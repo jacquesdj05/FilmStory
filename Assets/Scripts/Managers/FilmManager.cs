@@ -42,6 +42,7 @@ public class FilmManager : MonoBehaviour
     {
         UIManager.onSave += SaveScreenplay;
         UIManager.onCancel += CancelScreenplay;
+        //UIManager.onNewFilmOK += CreateNewFilm;
     }
 
     // Called by UI Manager in "GetNewFilmTitle()" -- could potentially do the other way around
