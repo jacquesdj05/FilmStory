@@ -34,6 +34,8 @@ public class UIManager : MonoBehaviour
     public string newGenre { get; protected set; }
     public string newTopic { get; protected set; }
 
+    public GameObject canvas;
+
     [SerializeField]
     private GameObject moneyValueUI, timeValueUI;
 
@@ -53,6 +55,8 @@ public class UIManager : MonoBehaviour
             _instance = this;
         else if (_instance != this)
             Destroy(this.gameObject);
+
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
     }
 
     private void Start()
@@ -196,7 +200,7 @@ public class UIManager : MonoBehaviour
 
     public void GetNewFilmTitle()
     {
-        var inputField = GameObject.Find("Canvas/Film Title_UI Panel/FilmTitle_InputField");
+        var inputField = canvas.transform.Find("Film Title_UI Panel/FilmTitle_InputField");
         if (inputField == null)
         {
             Debug.LogError("GetNewFilmTitle() error: Input Field not found!");

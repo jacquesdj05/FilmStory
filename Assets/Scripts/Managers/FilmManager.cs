@@ -42,7 +42,6 @@ public class FilmManager : MonoBehaviour
     {
         UIManager.onSave += SaveScreenplay;
         UIManager.onCancel += CancelScreenplay;
-        //UIManager.onNewFilmOK += CreateNewFilm;
     }
 
     // Called by UI Manager in "GetNewFilmTitle()" -- could potentially do the other way around
@@ -78,22 +77,6 @@ public class FilmManager : MonoBehaviour
         var topic = newFilm.GetComponent<Film>().topic = UIManager.Instance.newTopic;
 
         return topic;
-    }
-
-    public void SetScreenplayParams(Screenplay newScreenplay)
-    {
-        // // Get the new film instance
-        // if (newFilm != null)
-        // {
-        //     var newScreenplay = newFilm.GetComponentInChildren<Screenplay>();
-        //     Debug.Log("Screenplay found!");
-        //     newScreenplay.plot = 5;
-        //     newScreenplay.satire = 3;
-        // }
-        // else
-        // {
-        //     Debug.LogError("No new film");
-        // }
     }
 
     public Screenplay GetNewScreenplay()
