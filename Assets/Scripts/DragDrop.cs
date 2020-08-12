@@ -22,8 +22,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBegin
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         startPosition = GetComponent<RectTransform>().anchoredPosition;
-        UIManager.onSave += ResetPerk;
-        UIManager.onCancel += ResetPerk;
+        UIManager.onSaveScreenplay += ResetPerk;
+        UIManager.onCancelScreenplay += ResetPerk;
     }
 
     //private void OnDisable()

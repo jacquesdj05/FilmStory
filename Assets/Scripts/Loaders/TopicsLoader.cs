@@ -11,7 +11,7 @@ public class TopicsLoader : MonoBehaviour
         get
         {
             if (_instance == null)
-                Debug.LogError("Topics Loader instance is NULL");
+                Debug.LogError("Topics Manager instance is NULL");
             return _instance;
         }
     }
@@ -20,16 +20,13 @@ public class TopicsLoader : MonoBehaviour
 
     void Awake()
     {
-        // Dont destroy this object when a new scene is loaded, unless...
-        DontDestroyOnLoad(this);
-
         // There can be only ONE!
         if (_instance == null)
             _instance = this;
         else if (_instance != this)
             Destroy(this.gameObject);
 
-        /************* Start Loading Script *************/
+        /************* Load Topics Start *************/
 
         // Loads the entire csv as a single, long string
         TextAsset topicsData = Resources.Load<TextAsset>("TopicsData");

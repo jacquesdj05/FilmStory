@@ -2,24 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TopicsManager : MonoBehaviour
+public class LocationsManager : MonoBehaviour
 {
     // Singleton
-    private static TopicsManager _instance;
-    public static TopicsManager Instance
+
+    private static LocationsManager _instance;
+    public static LocationsManager Instance
     {
         get
         {
             if (_instance == null)
-                Debug.LogError("Topics Manager instance is NULL");
+                Debug.LogError("Film Manager instance is NULL");
             return _instance;
         }
     }
 
-    //public Topic[] topicArray;
-    //public List<Topic> topicList = new List<Topic>();
-
-    void Awake()
+    private void Awake()
     {
         // Dont destroy this object when a new scene is loaded, unless...
         DontDestroyOnLoad(this);
@@ -29,9 +27,5 @@ public class TopicsManager : MonoBehaviour
             _instance = this;
         else if (_instance != this)
             Destroy(this.gameObject);
-
-        // Randomise the list of Topics at the start of the game (here or in TopicsLoader class)
-
-        
     }
 }

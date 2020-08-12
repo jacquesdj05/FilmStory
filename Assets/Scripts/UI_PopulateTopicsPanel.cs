@@ -13,7 +13,7 @@ public class UI_PopulateTopicsPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numberOfButtons = TopicsManager.Instance.topicList.Count;
+        numberOfButtons = TopicsLoader.Instance.topicList.Count;
 
         PopulateTopicButtons();
 
@@ -29,10 +29,10 @@ public class UI_PopulateTopicsPanel : MonoBehaviour
             // Make the child of the GameObject with this script attached (the panel in this case)
             newButton = Instantiate(topicsButton, transform);
             // make button's label the Topic
-            newButton.GetComponentInChildren<TextMeshProUGUI>().text = TopicsManager.Instance.topicList[i].topicName;
+            newButton.GetComponentInChildren<TextMeshProUGUI>().text = TopicsLoader.Instance.topicList[i].topicName;
 
             // Set the topicID on the button the TopicsManager topicID [look into Get Set here]
-            newButton.GetComponent<GetTopicName>().topicID = TopicsManager.Instance.topicList[i].topicID;
+            newButton.GetComponent<GetTopicName>().topicID = TopicsLoader.Instance.topicList[i].topicID;
 
             // Button onClick() function
             // 1. Hide the Topics panel

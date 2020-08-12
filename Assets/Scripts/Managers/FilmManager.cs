@@ -40,8 +40,10 @@ public class FilmManager : MonoBehaviour
 
     private void Start()
     {
-        UIManager.onSave += SaveScreenplay;
-        UIManager.onCancel += CancelScreenplay;
+        // Subscribe Screenplay Strength algorithm
+        UIManager.onSaveScreenplay += CalculateScreenplayStrength;
+        UIManager.onSaveScreenplay += SaveScreenplay;
+        UIManager.onCancelScreenplay += CancelScreenplay;
     }
 
     // Called by UI Manager in "GetNewFilmTitle()" -- could potentially do the other way around
@@ -65,14 +67,14 @@ public class FilmManager : MonoBehaviour
         return title;
     }
 
-    public string CreateNewFilmGenre(GameObject newFilm)
+    public int CreateNewFilmGenre(GameObject newFilm)
     {
         var genre = newFilm.GetComponent<Film>().genre = UIManager.Instance.newGenre;
 
         return genre;
     }
 
-    public string CreateNewFilmTopic(GameObject newFilm)
+    public int CreateNewFilmTopic(GameObject newFilm)
     {
         var topic = newFilm.GetComponent<Film>().topic = UIManager.Instance.newTopic;
 
@@ -113,6 +115,43 @@ public class FilmManager : MonoBehaviour
             GetNewScreenplay().screenplayParams[paramKey] -= 1;
             GetNewScreenplay().storyPoints += 1;
         }
+    }
+
+    public void CalculateScreenplayStrength()
+    {
+        var newScreenplay = newFilm.GetComponentInChildren<Screenplay>();
+
+        // Find screenplay genre ID
+        int newfilmGenreID = newFilm.GetComponent<Film>().genre;
+
+        // Get topic class
+        Topic newFilmTopic = TopicsLoader.Instance.topicList[newFilm.GetComponent<Film>().topic];
+
+        // Get Param values
+        // Get age rating (not yet implemented)
+
+        // in topic - where does the genre fall in genreMatch array?
+        // start with strength = 8, then minus 1 for each spot it is away from first.
+        // if not in the array at all, minus 7 points
+
+        // Start screenplay strength at 11 (7 for genre, 3 for age rating, 1 remainder)
+        newScreenplay.screenplayStrength = 11;
+
+        int numberToSubtract = 0;
+        for (int g = 0; g < newFilmTopic.genreMatch.Length; g++)
+        {
+            numberToSubtract = g;
+
+            if (newFilmTopic.genreMatch[g] == newfilmGenreID)
+            {
+                Debug.Log("Genre found in topic match at position " + g);
+                break;
+            }
+        }
+
+        newScreenplay.screenplayStrength -= numberToSubtract;
+
+        Debug.Log("Screenplay strength is now " + newScreenplay.screenplayStrength);
     }
 
     public void SaveScreenplay()

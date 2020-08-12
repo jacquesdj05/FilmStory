@@ -20,19 +20,19 @@ public class UIManager : MonoBehaviour
 
     // Save Button event system
     public delegate void SaveAction();
-    public static event SaveAction onSave;
+    public static event SaveAction onSaveScreenplay;
 
     // Cancel Button event system
     public delegate void CancelAction();
-    public static event CancelAction onCancel;
+    public static event CancelAction onCancelScreenplay;
 
     // OK Button event system
     public delegate void NewFilmOKAction();
     public static event NewFilmOKAction onNewFilmOK;
 
     public string newFilmTitle { get; protected set; }
-    public string newGenre { get; protected set; }
-    public string newTopic { get; protected set; }
+    public int newGenre { get; protected set; }
+    public int newTopic { get; protected set; }
 
     public GameObject canvas;
 
@@ -136,17 +136,17 @@ public class UIManager : MonoBehaviour
         FilmManager.Instance.SubtractValue(paramKey);
     }
 
-    public void CancelButtonClick()
+    public void CancelScreenplayButtonClick()
     {
-        if (onCancel != null)
-            onCancel();
+        if (onCancelScreenplay != null)
+            onCancelScreenplay();
         // Subscribers: FilmManager, DragDrop
     }
 
-    public void SaveButtonClick()
+    public void SaveScreenplayButtonClick()
     {
-        if (onSave != null)
-            onSave();
+        if (onSaveScreenplay != null)
+            onSaveScreenplay();
         // Subscribers: FilmManager, DragDrop
     }
 
@@ -227,13 +227,13 @@ public class UIManager : MonoBehaviour
     public void GetNewFilmGenre(int selectedGenre)
     {
 
-        newGenre = GenreManager.Instance.genreList[selectedGenre].genreName;
+        newGenre = GenreManager.Instance.genreList[selectedGenre].genreID;
         Debug.Log("Genre selected: " + newGenre);
     }
 
     public void GetNewFilmTopic(int selectedTopic)
     {
-        newTopic = TopicsManager.Instance.topicList[selectedTopic].topicName;
+        newTopic = TopicsLoader.Instance.topicList[selectedTopic].topicID;
         Debug.Log("Topic selected: " + newTopic);
     }
 

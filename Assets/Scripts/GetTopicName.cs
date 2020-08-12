@@ -16,7 +16,6 @@ public class GetTopicName : MonoBehaviour
 
     public void ClickedTopicName(GameObject thisButton)
     {
-        //string clickedTopic = thisButton.GetComponentInChildren<TextMeshProUGUI>().text;
         // Use the topicID to find the name of the topic instead
         int clickedTopic = topicID;
 
