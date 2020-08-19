@@ -16,7 +16,7 @@ public class Location
     public int cost;
 
     // Does the player have permission to shoot there
-    public bool permission = false;
+    //public bool permission = false;
 
     // How interesting a location is on screen
     [Range(1,3)]

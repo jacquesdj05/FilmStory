@@ -228,13 +228,15 @@ public class UIManager : MonoBehaviour
     {
 
         newGenre = GenreManager.Instance.genreList[selectedGenre].genreID;
-        Debug.Log("Genre selected: " + newGenre);
+        string newGenreName = GenreManager.Instance.genreList[selectedGenre].genreName;
+        Debug.Log("Genre selected: " + newGenreName);
     }
 
     public void GetNewFilmTopic(int selectedTopic)
     {
         newTopic = TopicsLoader.Instance.topicList[selectedTopic].topicID;
-        Debug.Log("Topic selected: " + newTopic);
+        string newTopicName = TopicsLoader.Instance.topicList[selectedTopic].topicName;
+        Debug.Log("Topic selected: " + newTopicName);
     }
 
     /// <summary>

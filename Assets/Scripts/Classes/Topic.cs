@@ -14,8 +14,11 @@ public class Topic
 
     public int[] ratingMatch = new int[3];
 
+    public int[] requiredLocation = new int[4];
+
     // The sprite the button will use and represent the topic
-    public Sprite topicIcon;
+    // Market draw?
 
     // Add other class variables and functionality
+    public Sprite topicIcon;
 }

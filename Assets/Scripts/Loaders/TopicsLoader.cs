@@ -29,7 +29,7 @@ public class TopicsLoader : MonoBehaviour
         /************* Load Topics Start *************/
 
         // Loads the entire csv as a single, long string
-        TextAsset topicsData = Resources.Load<TextAsset>("TopicsData");
+        TextAsset topicsData = Resources.Load<TextAsset>("TopicsData_proto");
 
         // Splits the csv by new line character, making each new line an element in the 'data' array
         string[] data = topicsData.text.Split(new char[] { '\n' });
@@ -40,7 +40,7 @@ public class TopicsLoader : MonoBehaviour
             // Split each line by the comma to store each value individually as an element in 'line' array
             string[] line = data[i].Split(new char[] { ',' });
 
-            // Save the values in the csv into a new Quest class
+            // Save the values in the csv into a new Topic class
             Topic t = new Topic();
 
             // This will try to convert the value into an int, otherwise just return the string (as well as empty strings)
@@ -63,6 +63,13 @@ public class TopicsLoader : MonoBehaviour
             int.TryParse(line[10], out t.ratingMatch[0]);
             int.TryParse(line[11], out t.ratingMatch[1]);
             int.TryParse(line[12], out t.ratingMatch[2]);
+
+            // Place the required Locations into the class
+            // NOTE: '99' is a wild card, any location can fill that spot
+            int.TryParse(line[13], out t.requiredLocation[0]);
+            int.TryParse(line[14], out t.requiredLocation[1]);
+            int.TryParse(line[15], out t.requiredLocation[2]);
+            int.TryParse(line[16], out t.requiredLocation[3]);
 
             topicList.Add(t);
         }
