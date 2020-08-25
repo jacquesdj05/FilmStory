@@ -14,6 +14,12 @@ public class GetTopicName : MonoBehaviour
     // or maybe it can just communicate with the Topics Manager
     public int topicID;
 
+    //public GameObject locationsPanel;
+
+    // Get the topic ID of the button pressed
+    // Write the required locations in the placeholder text fields
+    // save the topic when the Yes! is pressed
+
     public void ClickedTopicName(GameObject thisButton)
     {
         // Use the topicID to find the name of the topic instead
