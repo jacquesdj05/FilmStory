@@ -33,6 +33,9 @@ public class FilmManager : MonoBehaviour
 
     // temp storage for new film until added to list after creation process complete (saved)
     public GameObject newFilm = null;
+
+    // focus area for the film currently in pre-production. Place Game Object in here after Development
+    public GameObject preProductionFilm = null;
     
     // Database of saved films
     // See if this is possible without needing GameObjects (i.e. using "film" class only)
@@ -172,6 +175,9 @@ public class FilmManager : MonoBehaviour
         GameManager.Instance.PayCost(newScreenplay.moneyCost, newScreenplay.timeCost);
 
         FilmDB.Add(newFilm);
+
+        // Puts the last created script into Pre Production focus (assuming you want to go straight into Pre)
+        preProductionFilm = FilmDB[FilmDB.Count - 1];
         newFilm = null;
 
         Debug.Log("Film saved!");

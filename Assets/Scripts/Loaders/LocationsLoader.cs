@@ -30,7 +30,7 @@ public class LocationsLoader : MonoBehaviour
         /************* Load Locations Start *************/
 
         // Loads the entire csv as a single, long string
-        TextAsset locationsData = Resources.Load<TextAsset>("LocationsData");
+        TextAsset locationsData = Resources.Load<TextAsset>("LocationsData_proto");
 
         // Splits the csv by new line character, making each new line an element in the 'data' array
         string[] data = locationsData.text.Split(new char[] { '\n' });
