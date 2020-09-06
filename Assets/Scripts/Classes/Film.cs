@@ -57,7 +57,6 @@ public class Film : MonoBehaviour
     {
         RandomCastNumber();
         RandomLocationNumber();
-        //UIManager.onSave += SetCastAndLocation;
 
         //for (int i = 0; i < numberOfLocations; i++)
         //{
@@ -87,12 +86,4 @@ public class Film : MonoBehaviour
         //numberOfLocations = Random.Range(1, 4);
         numberOfLocations = 4;
     }
-
-    /*
-    // this will be useful when perks and other things can affect the numbers
-    public void SetCastAndLocation()
-    {
-
-    }
-    */
 }

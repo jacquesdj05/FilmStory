@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
             _instance = this;
         else if (_instance != this)
             Destroy(this.gameObject);
+
+        // If Cast Database is empty (meaning a new game) -> Generate actors (run cast loader) and save to the empty Cast Manager database
+        // If Crew Database is empty (meaning a new game) -> Generate crew (run crew loader) and save to the empty Crew Manager database
     }
 
     // Resoures to be spent throughout the game

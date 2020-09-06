@@ -8,17 +8,27 @@ public class UI_LocationButton : MonoBehaviour
     public int thisLocationID;
 
     public Location thisLocation;
+    public Film currentFilm;
 
     private void Start()
     {
         // Find that location ID in the location manager
         thisLocation = LocationsLoader.Instance.locationList[thisLocationID];
+        currentFilm = FilmManager.Instance.preProductionFilm.GetComponent<Film>();
     }
 
 
     // save location to film when clicked
     public void AddSelectedLocationToFilm()
     {
-        FilmManager.Instance.preProductionFilm.GetComponent<Film>().filmLocations.Add(thisLocation.locationID);
+        if (currentFilm.filmLocations.Count < currentFilm.numberOfLocations)
+        {
+            currentFilm.filmLocations.Add(thisLocation.locationID);
+            Debug.Log("Location added: " + thisLocation.locationID);
+        }
+        else
+        {
+            Debug.Log("Location limit reached for this film");
+        }
     }
 }
