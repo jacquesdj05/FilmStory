@@ -46,7 +46,7 @@ public class Film : MonoBehaviour
     public List<int> filmLocations = new List<int>();
 
     // Array to store actors selected by the player - probably won't be an 'int', but class instead
-    public List<int> filmCastMembers = new List<int>();
+    public List<int> filmActors = new List<int>();
 
     private void Awake()
     {
@@ -57,16 +57,6 @@ public class Film : MonoBehaviour
     {
         RandomCastNumber();
         RandomLocationNumber();
-
-        //for (int i = 0; i < numberOfLocations; i++)
-        //{
-        //    filmLocations.Add(0);
-        //}
-
-        for (int i = 0; i < numberOfCast; i++)
-        {
-            filmCastMembers.Add(0);
-        }
     }
 
     public void CreateNewFilm()
@@ -78,7 +68,7 @@ public class Film : MonoBehaviour
     // this should be dependent on genre and other perks
     public void RandomCastNumber()
     {
-        numberOfCast = Random.Range(1, 4);
+        numberOfCast = Random.Range(2, 5);
     }
 
     public void RandomLocationNumber()
