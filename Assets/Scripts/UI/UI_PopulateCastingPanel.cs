@@ -57,13 +57,13 @@ public class UI_PopulateCastingPanel : MonoBehaviour
 
             // Button onClick() function
             // 1. Hide the Topics panel
-            Button buttonComponent = newButton.GetComponent<Button>();
-            buttonComponent.onClick.AddListener(TaskOnClick);
+            //Button buttonComponent = newButton.GetComponent<Button>();
+            //buttonComponent.onClick.AddListener(TaskOnClick);
         }
     }
 
-    void TaskOnClick()
-    {
-        //UIManager.Instance.HideUIWindow(GameObject.Find("Casting_Scroll View"));
-    }
+    //void TaskOnClick()
+    //{
+    //    //UIManager.Instance.HideUIWindow(GameObject.Find("Casting_Scroll View"));
+    //}
 }

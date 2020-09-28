@@ -244,7 +244,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void NextSceneButton()
     {
-        Debug.Log("Loading next scene");
-        GameManager.Instance.GoToPreProduction();
+        Debug.Log("Loading Production scene");
+        GameManager.Instance.GoToProduction();
     }
 }

@@ -33,7 +33,7 @@ public class Film : MonoBehaviour
         numberOfCast,
         numberOfLocations;
 
-    public int director, cinematographer, editor;
+    public int directorID, cinematographerID, editorID;
 
     // Setting scriptID as read-only (tip: can check the scriptID in the
     // inspector's "Debug Mode"

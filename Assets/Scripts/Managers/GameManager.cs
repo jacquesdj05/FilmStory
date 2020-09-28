@@ -114,8 +114,8 @@ public class GameManager : MonoBehaviour
         return monthlyMoneyCost;
     }
 
-    public void GoToPreProduction()
+    public void GoToProduction()
     {
-        SceneManager.LoadScene("Pre-Production");
+        SceneManager.LoadScene("Production");
     }
 }
