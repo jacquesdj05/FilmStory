@@ -8,6 +8,8 @@ public class UI_PopulateShotListPanel : MonoBehaviour
 {
     public GameObject shotListedPanel;
 
+    public int thisShotID = 0;
+
     public void AddShotToShotList(int chosenShotID)
     {
         GameObject newPanel;
@@ -20,7 +22,7 @@ public class UI_PopulateShotListPanel : MonoBehaviour
 
         foreach (ShotsManager.shot s in ShotsManager.Instance.shotOptions)
         {
-            if (s.shotID == chosenShotID)
+            if (s.shotTypeID == chosenShotID)
             {
                 s.actorsInShot = currentFilm.filmActors;
 
@@ -29,9 +31,18 @@ public class UI_PopulateShotListPanel : MonoBehaviour
 
                 s.takeNumber = 0;
 
+                s.shotID = thisShotID;
+
+
                 ShotsManager.Instance.shotList.Add(s);
 
                 newPanel = Instantiate(shotListedPanel, transform);
+
+                // Set the panel's info to the same ID as it has in the shotlist (so it can be found and deleted if needed)
+                newPanel.GetComponent<ShotListDataStorage>().thisShotID = thisShotID;
+                thisShotID++;
+
+                newPanel.GetComponent<ShotListDataStorage>().thisShotTypeID = s.shotTypeID;
 
                 // make panel's label the shot name
                 newText = newPanel.transform.Find("Text 0").gameObject;
@@ -49,6 +60,7 @@ public class UI_PopulateShotListPanel : MonoBehaviour
                 }
 
                 newText.GetComponentInChildren<TextMeshProUGUI>().text = newString;
+                break;
             }
 
         }

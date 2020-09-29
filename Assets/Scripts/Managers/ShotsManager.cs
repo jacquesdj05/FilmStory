@@ -21,7 +21,7 @@ public class ShotsManager : MonoBehaviour
     public class shot
     {
         public string shotType;
-        public int shotID;
+        public int shotTypeID, shotID;
 
         public int shotLocationID;
 
@@ -64,5 +64,4 @@ public class ShotsManager : MonoBehaviour
         
     }
 
-    // Remove shot from Shot List when button is destroyed in Shot List
 }
