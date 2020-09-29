@@ -64,25 +64,5 @@ public class ShotsManager : MonoBehaviour
         
     }
 
-    public void AddShotToShotList(int chosenShotID)
-    {
-        // Get the current film in production
-        Film currentFilm = FilmManager.Instance.preProductionFilm.GetComponent<Film>();
-
-        foreach (shot s in shotOptions)
-        {
-            if (s.shotID == chosenShotID)
-            {
-                s.actorsInShot = currentFilm.filmActors;
-
-                // X seconds for each actor
-                s.setupTimeTotal = s.setupTimeBase + s.actorsInShot.Count * setupUpTimePerActor;
-
-                s.takeNumber = 0;
-
-                shotList.Add(s);
-            }
-
-        }
-    }
+    // Remove shot from Shot List when button is destroyed in Shot List
 }
